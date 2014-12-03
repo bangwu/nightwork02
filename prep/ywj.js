@@ -16,6 +16,7 @@ function dataToView(disks){
 function diskDiv(disk){
   return $("<div>")
   .attr("class","disk1")
+  .attr("id",disk.name)
   .append(diskTitle(disk.name))
   .append(diskImg(disk.img))
   .append(diskDesc(disk.desc))
@@ -37,7 +38,10 @@ function diskDelete(name){
 }
 
 function diskEdit(name){
-  return $("<Button>").attr("onclick","funedit('"+name+"')").html("Edit");
+  return $("<Button>")
+  .attr("id",name)
+  .attr("onclick","funedit('"+name+"')")
+  .html("Edit");
 }
 
 
@@ -56,11 +60,16 @@ function fundelete(name){
   });
   disks=searchResult;
   dataToView(searchResult);
-  //alert(name);
 }
 
 function funedit(name){
-  alert(name);
+  var searchResult=_.filter(disks,function(disk){
+    return disk.name.indexOf(name)!=-1;
+  });
+  $("#productName").val(searchResult[0].name);
+  $("#productImg").val(searchResult[0].img);
+  $("#productDesc").val(searchResult[0].desc);
+  dataToView(disks);
 }
 
 function search(){
@@ -69,5 +78,4 @@ function search(){
     return disk.name.indexOf(keyWord)!=-1;
   });
   dataToView(searchResult);
-  console.log(searchResult[0]);
 }
