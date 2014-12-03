@@ -69,6 +69,7 @@ function funedit(name){
   $("#productName").val(searchResult[0].name);
   $("#productImg").val(searchResult[0].img);
   $("#productDesc").val(searchResult[0].desc);
+  fundelete(name)
   dataToView(disks);
 }
 
