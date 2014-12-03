@@ -19,7 +19,8 @@ function diskDiv(disk){
   .append(diskTitle(disk.name))
   .append(diskImg(disk.img))
   .append(diskDesc(disk.desc))
-  .append(diskDelete(disk.name));
+  .append(diskDelete(disk.name))
+  .append(diskEdit(disk.name));
 }
 function diskTitle(name){
   return $("<h3>").html(name);
@@ -33,6 +34,10 @@ function diskDesc(desc){
 
 function diskDelete(name){
   return $("<Button>").attr("onclick","fundelete('"+name+"')").html("Delete");
+}
+
+function diskEdit(name){
+  return $("<Button>").attr("onclick","funedit('"+name+"')").html("Edit");
 }
 
 
@@ -52,6 +57,10 @@ function fundelete(name){
   disks=searchResult;
   dataToView(searchResult);
   //alert(name);
+}
+
+function funedit(name){
+  alert(name);
 }
 
 function search(){
