@@ -32,7 +32,7 @@ function diskDesc(desc){
 }
 
 function diskEdit(){
-  return $("<Button>").html("Edit");
+  return $("<Button>").attr("onclick","edit()").html("Edit");
 }
 
 
@@ -43,6 +43,10 @@ function add(){
     desc:$("#productDesc").val()};
     disks.push(newProduct);
     dataToView(disks);
+}
+
+function edit(){
+  alert("hello");
 }
 
 function search(){
