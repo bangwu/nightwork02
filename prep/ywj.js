@@ -18,7 +18,8 @@ function diskDiv(disk){
   .attr("class","disk1")
   .append(diskTitle(disk.name))
   .append(diskImg(disk.img))
-  .append(diskDesc(disk.desc));
+  .append(diskDesc(disk.desc))
+  .append(diskEdit());
 }
 function diskTitle(name){
   return $("<h3>").html(name);
@@ -29,6 +30,11 @@ function diskImg(img){
 function diskDesc(desc){
   return $("<p>").html(desc);
 }
+
+function diskEdit(){
+  return $("<Button>").html("Edit");
+}
+
 
 function add(){
   var newProduct={
